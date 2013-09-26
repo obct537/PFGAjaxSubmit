@@ -1,0 +1,10 @@
+<configure
+	xmlns:zope="http://namespaces.zope.org/zope"
+	xmlns:browser="http://namespaces.zope.org/zope" >
+
+	<browser:resourceDirectory
+		name="Products.PFGAjaxSubmit.resources"
+		directory="resources"
+		/>
+
+</configure>
