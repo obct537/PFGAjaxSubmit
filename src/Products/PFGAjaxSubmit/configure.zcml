@@ -2,11 +2,13 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="Products.PFGAjaxSubmit">
 
 
   <includeDependencies package="." />
+  <include package=".browser" />
 
   <genericsetup:registerProfile
       name="default"
@@ -15,6 +17,10 @@
       description="Installs the Products.PFGAjaxSubmit package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-  <!-- -*- extra stuff goes here -*- -->
+  
+  <browser:resource
+    name="Products.PFGAjaxSubmit-AjaxSubmit.js"
+    file="browser/resources/AjaxSubmit.js"
+    />
 
 </configure>

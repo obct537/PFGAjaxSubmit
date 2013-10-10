@@ -13,6 +13,7 @@ src/Products.PFGAjaxSubmit.egg-info/requires.txt
 src/Products.PFGAjaxSubmit.egg-info/top_level.txt
 src/Products/PFGAjaxSubmit/__init__.py
 src/Products/PFGAjaxSubmit/testing.py
+src/Products/PFGAjaxSubmit/browser/__init__.py
 src/Products/PFGAjaxSubmit/tests/__init__.py
 src/Products/PFGAjaxSubmit/tests/test_example.py
 src/Products/PFGAjaxSubmit/tests/test_robot.py
