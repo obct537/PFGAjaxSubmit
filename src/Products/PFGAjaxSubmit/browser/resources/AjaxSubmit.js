@@ -3,8 +3,7 @@
 
 		var options = {
 			success: 	showResponse,
-			error: 		errorResponse,
-			url:         "localhost:8235", 
+			error: 		errorResponse, 
 			timeout: 	3000, 		
 		}
 
