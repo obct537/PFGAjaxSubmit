@@ -4,7 +4,7 @@
 		var options = {
 			success: 	showResponse,
 			error: 		errorResponse, 
-			timeout: 	3000, 		
+			timeout: 	30000, 		
 		}
 
 		$("#fg-base-edit").ajaxForm(options);
@@ -18,14 +18,15 @@
 			 	// Since validation/response is customized server side, we replace the body
 			 	// content to ensure that we display exactly what's expected.
 				
-				if( $(responseText).find("#content") )
+				if( $(responseText).find("#content").text() != "" )
 				{
 					// Assuming the returned page has a #content element,
 					// it's safe to say it's coming from Plone
 					//
 					// We're trying to catch response from anywhere but the Plone site
 					// (i.e. error pages from the load balancer, things like that.)
-					$("#content").replaceWith($(responseText).find("#content")
+					console.log($(responseText).find("#content").text());
+					$("#content").replaceWith($(responseText).find("#content"));
 					return 0;
 				}
 				else 
@@ -46,7 +47,7 @@
     	// Function for handling timeouts or other major failures
     	function errorResponse()
     	{
-    		alert("There was a problem submitting your form. \n\n Please try again in a few minutes.\n\n");
+    		alert("There was a problem submitting your form. \n\n Please try again later.\n\n");
     	}
 
 		// Prevents the browser from submitting also
