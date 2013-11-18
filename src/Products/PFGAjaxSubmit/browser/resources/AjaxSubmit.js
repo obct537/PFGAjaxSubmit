@@ -13,6 +13,8 @@
 		// Function for "valid" responses
 		function showResponse(responseText, statusText, xhr, $form)  { 
 
+			errorText = "There was a problem submitting your form, please try again.";
+
 			if( statusText == "success" )
 			{
 			 	// Since validation/response is customized server side, we replace the body
@@ -25,7 +27,6 @@
 					//
 					// We're trying to catch response from anywhere but the Plone site
 					// (i.e. error pages from the load balancer, things like that.)
-					console.log($(responseText).find("#content").text());
 					$("#content").replaceWith($(responseText).find("#content"));
 					return 0;
 				}
@@ -34,20 +35,20 @@
 					// Getting here means we've gotten a "success" reponse,
 					// but it wasn't from Plone, but something else
 					// This is the main condition we're protecting against.
-					alert("There was a problem submitting your form, please try again.");
+					alert(errorText);
 				}
 			}			
 			else
 			{
 				// If (somehow) the AJAX submittion fails
-				alert("There was a problem submitting your form. \n\n Response state code=" + statusText);
+				alert(errorText);
 			}
     	} 
 
     	// Function for handling timeouts or other major failures
     	function errorResponse()
     	{
-    		alert("There was a problem submitting your form. \n\n Please try again later.\n\n");
+    		alert(errorText);
     	}
 
 		// Prevents the browser from submitting also
